@@ -1,5 +1,7 @@
 # Factory Method
 
+Também conhecido como: **Método fábrica**, **Construtor virtual**
+
 ## table of contents
 
 1. [O que é](#o-que-é)
