@@ -43,11 +43,7 @@ Estes padrões explicam como montar objetos e classes em estruturas maiores mas 
 
 O código que usa o método fábrica (geralmente chamado de código cliente) não vê diferença entre os produtos reais retornados por várias subclasses. O cliente trata todos os produtos como um Transporte abstrato. O cliente sabe que todos os objetos de transporte devem ter o método entregar, mas como exatamente ele funciona não é importante para o cliente.
 
-cat Adapter.md Bridge.md Composite.md Decorator.md Facade.md Flyweigh.md Proxy.md
-
 --------
 ## Padrões comportamentais
 
 Estes padrões são voltados aos algoritmos e a designação de responsabilidades entre objetos.
-
-ChainofResponsability.md Command.md Memento.md Observer.md TemplateMethod.md Visitor.md Iterator.md State.md Mediator.md Strategy.md
