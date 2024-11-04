@@ -26,11 +26,11 @@ Trata a abstração como uma classe concreta.
 
 ![alt text](/the-23paterns/imagesmd/AF1.png)
 
-Aqui temos a interface de uma fabrica com todos os itens que todas as fábricas fazem e a criação de classes concretas que de fato lidam com criar esses itens, mas cada um desses itens são criados conforme seu tipo, dado que a fabrica correspondente sabe seu tipo é fácil de fazer isso.
+Aqui temos a interface de uma fabrica com **todos os itens que todas as fábricas fazem** e a criação de classes concretas que de fato lidam com criar esses itens, mas cada um desses itens são criados conforme seu tipo, dado que a fabrica correspondente sabe seu tipo é fácil de fazer isso.
 
 Para retornar os tipos abstratos é necessário criarmos uma interface que abrange os diversos itens (modern, victorian) de cada tipo (chair, sofa)
 
-![alt text](image.png)
+![alt text](/the-23paterns/imagesmd/AF2.png)
 
 Ou seja, quando se executar a função **createChair()** da **ModernFurnitureFactory**, irá retornar um tipo **Chair**, e não o tipo **ModernChair** (visto que **modernChair** continua sendo **Chair**, mas com suas próprias características), mas vai executar o criador de **modernChair**. 
 

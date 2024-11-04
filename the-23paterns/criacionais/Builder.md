@@ -26,9 +26,41 @@ Para isso:
 
 ![alt text](/the-23paterns/imagesmd/BR2.png)
 
+Ele reforça o **Princípio de responsabilidade única**. Você pode isolar um código de construção complexo da lógica de negócio do produto.
+
 ## Estrutura
 
+![alt text](/the-23paterns/imagesmd/BR3.png)
+
+1. A **interface Builder** declara etapas de construção do produto que são comuns a todos os tipos de builders.
+
+1. **Builders Concretos** provém diferentes implementações das etapas de construção. **Builders concretos** podem produzir produtos que não seguem a interface comum.
+
+1. **Produtos** são os objetos resultantes. **Produtos** construídos por diferentes builders não precisam pertencer a mesma interface ou hierarquia da classe.
+
+1. A **classe Diretor** define a ordem na qual as etapas de construção são chamadas, então você pode criar e reutilizar **configurações específicas de produtos**.
+
+1. O **Cliente** deve associar um dos objetos builders com o diretor. Usualmente isso é feito apenas uma vez, através de parâmetros do construtor do diretor. O diretor então usa aquele objeto builder para todas as futuras construções. Contudo, há uma abordagem alternativa para quando o cliente passa o objeto builder ao método de produção do diretor. Nesse caso, você pode usar um builder diferente a cada vez que você produzir alguma coisa com o diretor.
+
+Diferente do prototype que clona os objetos, esse constrói do 0 podendo alterar configurações por mais que reutilize configurações específicas de produtos
+
+![alt text](/the-23paterns/imagesmd/BR4.png)
+
 ## Como implementar
+
+1. Certifique-se que você pode definir claramente as etapas comuns de construção para construir todas as representações do produto disponíveis. Do contrário, você não será capaz de implementar o padrão.
+
+1. Declare essas etapas na interface builder base.
+
+1. Crie uma classe builder concreta para cada representação do produto e implemente suas etapas de construção.
+
+    Não se esqueça de implementar um método para recuperar os resultados da construção. O motivo pelo qual esse método não pode ser declarado dentro da interface do builder é porque vários builders podem construir produtos que não tem uma interface comum. Portanto, você não sabe qual será o tipo de retorno para tal método. Contudo, se você está lidando com produtos de uma única hierarquia, o método de obtenção pode ser adicionado com segurança para a interface base.
+
+1. Pense em criar uma classe diretor. Ela pode encapsular várias maneiras de construir um produto usando o mesmo objeto builder.
+
+1. O código cliente cria tanto os objetos do builder como do diretor. Antes da construção começar, o cliente deve passar um objeto builder para o diretor. Geralmente o cliente faz isso apenas uma vez, através de parâmetros do construtor do diretor. O diretor usa o objeto builder em todas as construções futuras. Existe uma alternativa onde o builder é passado diretamente ao método de construção do diretor.
+
+1. O resultado da construção pode ser obtido diretamente do diretor apenas se todos os produtos seguirem a mesma interface. Do contrário o cliente deve obter o resultado do builder.
 
 ## Na prática
 
@@ -486,3 +518,9 @@ public class Demo {
 ```
 
 ## Quando usar
+
+Use o padrão Builder para se livrar de um “construtor telescópico”.
+
+Use o padrão Builder quando você quer que seu código seja capaz de criar diferentes representações do mesmo produto (por exemplo, casas de pedra e madeira).
+
+Use o Builder para construir árvores Composite ou outros objetos complexos.

@@ -14,20 +14,19 @@
 
 ## O que é
 
-O Prototype é um padrão de projeto criacional que permite copiar objetos existentes sem fazer seu código ficar dependente de suas classes.
+O **Prototype** é um padrão de projeto criacional que permite **copiar objetos existentes sem fazer seu código ficar dependente de suas classes**.
 
-Digamos que você tenha um objeto, e você quer criar uma cópia exata dele. Como você o faria? Primeiro, você tem que criar um novo objeto da mesma classe. Então você terá que ir por todos os campos do objeto original e copiar seus valores para o novo objeto.
+Digamos que você tenha um objeto, e você quer criar **uma cópia exata dele**. Como você o faria? Primeiro, você tem que criar um novo objeto da mesma classe. Então você terá que ir por todos os campos do objeto original e copiar seus valores para o novo objeto.
 
 Legal! Mas tem uma pegadinha. Nem todos os objetos podem ser copiados dessa forma porque alguns campos de objeto podem ser privados e não serão visíveis fora do próprio objeto.
 
 Uma vez que você precisa saber a classe do objeto para criar uma cópia, seu código se torna dependente daquela classe.
 
-Algumas vezes você só sabe a interface que o objeto segue, mas não sua classe concreta,
+**Algumas vezes você só sabe a interface que o objeto segue, mas não sua classe concreta**
 
 ## Estrutura
 
 ![alt text](/the-23paterns/imagesmd/PT1.png)
-
 
 
 1. A interface Protótipo declara os métodos de clonagem. Na maioria dos casos é apenas um método clonar.
