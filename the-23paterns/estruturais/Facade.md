@@ -53,7 +53,7 @@ envelopa a aplicação em uma interface simples
 Vamos criar aqui uma biblioteca de conversão de video
 
 ```java
-package refactoring_guru.facade.example.some_complex_media_library;
+package suaPastaBonita.some_complex_media_library;
 
 public class VideoFile {
     private String name;
@@ -77,7 +77,7 @@ public class VideoFile {
 
 
 ```java
-package refactoring_guru.facade.example.some_complex_media_library;
+package suaPastaBonita.some_complex_media_library;
 
 public interface Codec {
 }
@@ -86,7 +86,7 @@ public interface Codec {
 
 
 ```java
-package refactoring_guru.facade.example.some_complex_media_library;
+package suaPastaBonita.some_complex_media_library;
 
 public class MPEG4CompressionCodec implements Codec {
     public String type = "mp4";
@@ -97,7 +97,7 @@ public class MPEG4CompressionCodec implements Codec {
 
 
 ```java
-package refactoring_guru.facade.example.some_complex_media_library;
+package suaPastaBonita.some_complex_media_library;
 
 public class OggCompressionCodec implements Codec {
     public String type = "ogg";
@@ -107,7 +107,7 @@ public class OggCompressionCodec implements Codec {
 
 
 ```java
-package refactoring_guru.facade.example.some_complex_media_library;
+package suaPastaBonita.some_complex_media_library;
 
 public class CodecFactory {
     public static Codec extract(VideoFile file) {
@@ -127,7 +127,7 @@ public class CodecFactory {
 
 
 ```java
-package refactoring_guru.facade.example.some_complex_media_library;
+package suaPastaBonita.some_complex_media_library;
 
 public class BitrateReader {
     public static VideoFile read(VideoFile file, Codec codec) {
@@ -145,7 +145,7 @@ public class BitrateReader {
 
 
 ```java
-package refactoring_guru.facade.example.some_complex_media_library;
+package suaPastaBonita.some_complex_media_library;
 
 import java.io.File;
 
@@ -160,9 +160,9 @@ public class AudioMixer {
 
 
 ```java
-package refactoring_guru.facade.example.facade;
+package suaPastaBonita.facade;
 
-import refactoring_guru.facade.example.some_complex_media_library.*;
+import suaPastaBonita.some_complex_media_library.*;
 
 import java.io.File;
 
@@ -190,9 +190,9 @@ public class VideoConversionFacade {
 
 
 ```java
-package refactoring_guru.facade.example;
+package suaPastaBonita;
 
-import refactoring_guru.facade.example.facade.VideoConversionFacade;
+import suaPastaBonita.facade.VideoConversionFacade;
 
 import java.io.File;
 
