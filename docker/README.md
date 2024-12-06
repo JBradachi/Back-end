@@ -50,7 +50,7 @@ docker exec <opções> <container_id> <comando>
 
 - it: executa em modo iterativo
 
-docker build -t <nome_da_imagem>
+docker build -t <nome_da_imagem> .
 cria uma nova imagem baseado em um arquivo docker file
 
 docker network ls
@@ -62,3 +62,9 @@ lista os volumes
 docker pull python:3.10-slim
 docker run python:3.10-slim python -c "print('teste')"
 
+docker rm -f <nomedocontainer>
+remove o conteiner q está executando (forçado)
+
+docker run --name <nomecontainer> -d -v volumepc:volumedocker <nomeimagem>
+
+docker run --name <nomecontainer> -d -v ./data:/app/data modulo-01
