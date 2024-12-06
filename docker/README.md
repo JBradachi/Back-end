@@ -62,9 +62,14 @@ lista os volumes
 docker pull python:3.10-slim
 docker run python:3.10-slim python -c "print('teste')"
 
-docker rm -f <nomedocontainer>
 remove o conteiner q está executando (forçado)
 
 docker run --name <nomecontainer> -d -v volumepc:volumedocker <nomeimagem>
 
 docker run --name <nomecontainer> -d -v ./data:/app/data modulo-01
+
+docker exec -it <nomecontainer> bash
+
+cat arquivo
+
+volume: persistencia de forma geral
