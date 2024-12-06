@@ -8,6 +8,7 @@ Minucurso da SECOM descomplicando docker: do zero a prática com Ângelo Cuperti
   - [Comandos mais usados](#comandos-mais-usados)
   - [Volumes](#volumes)
   - [Networks](#networks)
+  - [Docker compose](#docker-compose)
 
 Usar outros softwares sem ter ela na máquina padrão
 
@@ -105,3 +106,33 @@ volume: persistencia de forma geral
 - bridge
 - conectar ips (API python e BD)
 - portas e exposição (docker não expõe)
+  
+```docker run -p 8081:5000 --name flaskcontainer --network my-network flaskimg```
+
+
+Pode mapear volume > arquivo para arquivo e diretório para diretório
+Sobrescreve o COPY . .
+
+```docker run --name flaskcontainer -p 8081:5000 --network my-network -v ./app.py:/app/app.py flaskimg```
+
+
+## Docker compose
+
+```docker compose up```
+
+```docker compose down```
+
+services:
+containers q serão executados
+    image: imagem a ser executada (build: path dockerfile)
+    container_name: nome do container
+    restart: unless-stopped (always) reinicia container se morre
+    ports: 
+        - "8081:5000"
+        - "443:443"
+    volumes:
+        - diretóriolocal:diretóriocontainer
+        - .:/var/www 
+    networks:
+        nome da network:
+            driver: bridge

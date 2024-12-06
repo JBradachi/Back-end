@@ -3,33 +3,25 @@ from flask import Flask
 
 print("entrou")
 
-host = "my-postgres"
+host = "postgres"
 database = "mydb"
 user = "user"
 password = "pass"
 
 app = Flask("__name__")
 
-@app.route('/')
+@app.get('/getMaiorValor')
 def home():
     try:
         conn = psycopg2.connect(host=host, database=database, user=user, password=password)
+        cor = conn.cursor()
+        cor.execute("select * from bitcoin_variations")
+        consulta = cor.fetchall()
         conn.close()
-        return "Conexão bem sucedida"
+        return consulta
     except Exception as e:
         return "Erro com o banco de dados"
-    
-@app.route('/teste')
-def teste():
-    return "socorro"
 
-@app.route('/zorza')
-def zorza():
-    return "zorza"
-
-@app.route('/angelo')
-def angelo():
-    return "angelo"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

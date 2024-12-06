@@ -1,0 +1,40 @@
+services:
+  db: 
+    image: postgres:16
+    container_name: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: mydb
+    networks:
+      - my-2network
+    
+  api:
+    build:
+      context: ./api
+    container_name: api
+    depends_on:
+      - db 
+      - processador
+    ports:
+      - "8081:5000"
+    networks:
+      - my-2network
+    volumes:
+      - ./api/app.py:/app/app.py
+    restart: unless-stopped 
+
+  processador:
+    build: 
+      context: ./Processador
+    container_name: Processador
+    depends_on:
+      - db 
+    networks:
+      - my-2network
+    restart: unless-stopped 
+
+
+networks:
+  my-2network:
+    driver: bridge

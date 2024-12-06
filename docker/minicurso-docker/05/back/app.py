@@ -19,17 +19,6 @@ def home():
     except Exception as e:
         return "Erro com o banco de dados"
     
-@app.route('/teste')
-def teste():
-    return "socorro"
-
-@app.route('/zorza')
-def zorza():
-    return "zorza"
-
-@app.route('/angelo')
-def angelo():
-    return "angelo"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
