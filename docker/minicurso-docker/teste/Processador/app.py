@@ -21,4 +21,3 @@ except Exception as e:
     print("Falha na conexão do banco de dados")
     conn.close()
 
-
