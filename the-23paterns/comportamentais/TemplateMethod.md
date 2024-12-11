@@ -16,14 +16,14 @@ O Template Method é um padrão de projeto comportamental que define o esqueleto
 
 ## Estrutura
 
-![alt text](image.png)
+![alt text](/the-23paterns/imagesmd/TM1.png)
 
 Como você pode ver, nós temos dois tipos de etapas:
 
 1. etapas abstratas devem ser implementadas por cada subclasse
 2. etapas opcionais já tem alguma implementação padrão, mas ainda podem ser sobrescritas se necessário.
 
-![alt text](image.png)
+![alt text](/the-23paterns/imagesmd/TM2.png)
 
 
 
@@ -31,7 +31,7 @@ Como você pode ver, nós temos dois tipos de etapas:
 
 2. As Classes Concretas podem sobrescrever todas as etapas, mas não o próprio método padrão.
 
-![alt text](image.png)
+![alt text](/the-23paterns/imagesmd/TM3.png)
 
 ## Como implementar
 

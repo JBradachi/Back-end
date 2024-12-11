@@ -16,7 +16,7 @@ O Visitor é um padrão de projeto comportamental que permite que você separe a
 
 ## Estrutura
 
-![alt text](image.png)
+![alt text](/the-23paterns/imagesmd/VS1.png)
 
 
 
@@ -30,7 +30,7 @@ O Visitor é um padrão de projeto comportamental que permite que você separe a
 
 5. O Cliente geralmente representa uma coleção de outros objetos complexos (por exemplo, uma árvore Composite). Geralmente, os clientes não estão cientes de todas as classes elemento concretas porque eles trabalham com objetos daquela coleção através de uma interface abstrata.
 
-![alt text](image.png)
+![alt text](/the-23paterns/imagesmd/VS2.png)
 
 
 ## Como implementar
