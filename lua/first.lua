@@ -24,12 +24,12 @@ if num > 40 then
 elseif s ~= 'isso é uma string não modificável' then
     io.write('menor q 40\n')
 else
-    thisIsGlobal = 5
+    _ThisIsGlobal = 5
     local line = io.read()
     print('winter is coming' .. line .. num)
 end
 
-foo = variaveldesconhecida
+Foo = Variaveldesconhecida
 
 print(foo)
 
