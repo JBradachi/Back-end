@@ -106,3 +106,73 @@ local function ref()
     print(c.a, c[3])
 end
 
+local vAfetada = 0
+local function ec(x)
+    x = x + 1
+    vAfetada = 32
+    return 42
+end
+ec(vAfetada)
+print(vAfetada) -- 32
+
+local function variavel(...)
+    local c = ...
+    local d = {...}
+    local numparam = #...
+    print(c, d[2], numparam)
+end
+
+local string = {}
+
+function string.__add(x, y)
+    return x[1] .. " " ..  y[1]
+end
+
+local function soma2(x, y)
+    return x+y
+end
+
+local s1 = {"teste"}
+local s2 = {"test"}
+
+setmetatable(s1, string)
+setmetatable(s2, string)
+
+print(soma2(2, 4))
+print(soma2(s1, s2))
+
+-- Classes em Lua:
+
+Cachorro = {}
+
+function Cachorro:new()
+    -- atributos
+    local newObj = {sound = 'woof'}
+    self.__index = self
+    return setmetatable(newObj, self)
+end
+
+function Cachorro:makeSound()
+    print(self.sound)
+end
+
+local srDog = Cachorro:new()
+srDog:makeSound()
+
+-- Herança em lua 
+
+Pintcher = Cachorro:new()
+
+function Pintcher:new()
+    local newObj = {calda = "Pequena"}
+    self.__index = self
+    return setmetatable(newObj, self)
+end
+
+function Pintcher:makeSound()
+    print("grrrr " .. self.sound .. " grrrr" .. "\nBalança calda " .. self.calda)
+end
+
+local p = Pintcher:new()
+
+p:makeSound()
